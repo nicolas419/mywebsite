@@ -10,20 +10,20 @@
   <!-- Editorial typography (FT-inspired): Newsreader (serif) + Source Sans 3 (sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* Color system — FT "paper" + accessible dollar green */
     :root {
       --paper: #FFF1E5;           /* Financial Times beige */
-      --brand: #3E8C45;           /* Accessible dollar green for headings (>=3:1 contrast on FT beige) */
-      --brand-accent: #85BB65;    /* Lighter dollar green for rules/accents */
-      --text: #1F2937;            /* Charcoal for body text */
+      --brand: #3E8C45;           /* Dollar green for headings */
+      --brand-accent: #85BB65;    /* Lighter green for rules */
+      --text: #1F2937;            /* Charcoal text */
       --muted: #4B5563;           /* Secondary text */
       --maxw: 920px;              /* Column width */
 
-      /* Spacing scale */
-      --s-1: 6px; --s-2: 10px; --s-3: 16px; --s-4: 24px; --s-5: 32px; --s-6: 48px; --s-7: 72px;
+      /* Spacing scale (tightened) */
+      --s-1: 6px; --s-2: 10px; --s-3: 14px; --s-4: 18px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
     }
 
     html, body { height: 100%; }
@@ -32,59 +32,64 @@
       background: var(--paper);
       color: var(--text);
       font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.75;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     .container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
 
-    /* Header with typographic wordmark (classic, trustworthy) */
+    /* Header with typographic wordmark */
     .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: color-mix(in oklab, var(--paper) 88%, white 12%); border-bottom: 1px solid rgba(31,41,55,.08); }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 12px; }
 
-    .logo { color: var(--brand); letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
-    .logo .divider { width: 64px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
+    .logo { color: var(--brand); letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
+    .logo .divider { width: 56px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
     /* Hero */
-    .hero { padding-block: var(--s-5); }
-    $1
-    .hero h1 { margin-bottom: var(--s-2); }
-    .lead { color: var(--muted); font-size: 18px; margin: 0; }
+    .hero { padding-block: var(--s-4); }
+    h1 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin: 0 0 var(--s-2); }
+    .subhead { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(20px, 3.4vw, 30px); line-height: 1.25; margin: 0; }
 
     /* Sections */
-    section { padding-block: var(--s-6); border-top: 1px solid rgba(31,41,55,.08); }
+    section { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); }
     section:first-of-type { border-top: none; }
-    h2 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(20px, 3.2vw, 30px); line-height: 1.3; margin: 0 0 var(--s-3); }
-    p { margin: 0 0 var(--s-2); max-width: 78ch; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    .section-tight { padding-block: var(--s-4); }
 
-    /* Fine rule (⸻ look & feel) */
-    .rule { height: 1px; background: linear-gradient(to right, transparent, var(--brand-accent), transparent); border: 0; margin: var(--s-6) 0 var(--s-5); opacity: .9; }
+    h2 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(20px, 3vw, 28px); line-height: 1.25; margin: 0 0 var(--s-3); }
+    p { margin: 0 0 var(--s-2); max-width: 78ch; }
+
+    /* Fine rule */
+    .rule { height: 1px; background: linear-gradient(to right, transparent, var(--brand-accent), transparent); border: 0; margin: var(--s-5) 0 var(--s-4); opacity: .9; }
 
     /* Numbered steps */
-    .steps { counter-reset: step; display: grid; gap: var(--s-4); }
-    .step { position: relative; padding-left: 52px; }
+    .steps { counter-reset: step; display: grid; gap: var(--s-3); }
+    .step { position: relative; padding-left: 48px; }
     .step::before {
       counter-increment: step;
       content: counter(step) ".";
       position: absolute; left: 0; top: 0.15rem;
-      font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: 22px;
+      font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: 20px;
     }
-    .step-title { font-weight: 600; }
+    .step-title { font-weight: 700; margin-bottom: 4px; }
 
     .muted { color: var(--muted); }
 
-    .section-tight { padding-block: var(--s-5); }
+    /* Brands grid (no bullets, multi-column, compact) */
+    .brands { list-style: none; padding-left: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px 16px; }
+    .brands a { text-decoration: none; color: var(--text); }
+    .brands a:hover, .brands a:focus { text-decoration: underline; color: var(--brand); }
 
-    $1
-    footer { padding-block: var(--s-6); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
+    /* Footer */
+    footer { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
 
     /* Links */
     a { color: inherit; text-underline-offset: 3px; }
     a.cta { color: var(--brand); font-weight: 600; }
 
-    @media (min-width: 900px) { .hero { padding-block: var(--s-6); } }
+    @media (min-width: 900px) {
+      .hero { padding-block: var(--s-5); }
+    }
   </style>
 </head>
 <body>
@@ -102,19 +107,20 @@
     <!-- Hero -->
     <section class="hero">
       <h1>Middle East Market Entry</h1>
-      <p class="lead">Driving Sales, Securing Deals, Unlocking Capital.</p>
+      <p class="subhead">Driving Sales, Securing Deals, Unlocking Capital.</p>
     </section>
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- Our Approach -->
+    <!-- Our Approach (tighter) -->
     <section class="section-tight">
       <h2>Our Approach</h2>
       <p>We follow a proven, de-risked process to help Nordic and European brands succeed in the Middle East.</p>
 
       <div class="steps" aria-label="Four-step approach">
         <div class="step">
-          $1<p>We assess your current market position, offering, and materials. We then adapt them to fit the realities of the Middle East. No assumptions, only targeted adjustments.</p>
+          <p class="step-title">Evaluate &amp; Adapt</p>
+          <p>We assess your current market position, offering, and materials. We then adapt them to fit the realities of the Middle East. No assumptions, only targeted adjustments.</p>
         </div>
         <div class="step">
           <p class="step-title">Secure the First Win</p>
@@ -133,10 +139,10 @@
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- How We Deliver -->
+    <!-- How We Deliver (tighter) -->
     <section class="section-tight">
       <h2>How We Deliver</h2>
-      <p><strong$1
+      <p><strong>On-the-Ground Sales Support</strong><br />
       We operate as your local team and you can trust we are the best when it comes to identifying opportunities, engaging decision-makers, and driving deals to close.</p>
 
       <p><strong>Investor Access</strong><br />
@@ -151,7 +157,7 @@
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- Why Us -->
+    <!-- Why Us (tighter) -->
     <section class="section-tight">
       <h2>Why Us</h2>
       <ul>
@@ -164,11 +170,12 @@
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- Brands -->
-    <section>
+    <!-- Brands (grid, no bullets) -->
+    <section class="section-tight">
       <h2>Brands Who Have Trusted Us</h2>
       <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods, delivering measurable results and long-term partnerships.</p>
-      <ul>
+
+      <ul class="brands">
         <li><a href="https://www.artek.fi/en/" target="_blank" rel="noopener">Artek</a></li>
         <li><a href="https://biokia.fi/en/" target="_blank" rel="noopener">Biokia</a></li>
         <li><a href="https://buildercom.fi/en/homepage-2/" target="_blank" rel="noopener">Buildercom</a></li>
@@ -198,7 +205,6 @@
         <li><a href="https://afry.com/en/afrycom-has-replaced-vahanencom-website" target="_blank" rel="noopener">Vahanen</a></li>
         <li><a href="https://vetrospace.com/" target="_blank" rel="noopener">Vetrospace</a></li>
         <li><a href="https://workspace.fi/en/" target="_blank" rel="noopener">Workspace</a></li>
-        <li><a href="https://www.puustelli.com" target="_blank" rel="noopener">Puustelli</a></li>
         <li><a href="https://www.madebychoice.com" target="_blank" rel="noopener">Made By Choice</a></li>
       </ul>
     </section>
@@ -206,7 +212,7 @@
     <hr class="rule" aria-hidden="true" />
 
     <!-- Contact -->
-    <section>
+    <section class="section-tight">
       <h2>Contact &amp; Next Steps</h2>
       <p>Let’s discuss your growth in the Middle East.</p>
 

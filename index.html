@@ -13,13 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Color system — FT "paper" + accessible dollar green */
+    /* Color system — FT "paper"; ALL TEXT BLACK */
     :root {
       --paper: #FFF1E5;           /* Financial Times beige */
-      --brand: #3E8C45;           /* Dollar green for headings */
-      --brand-accent: #85BB65;    /* Lighter green for rules */
-      --text: #1F2937;            /* Charcoal text */
-      --muted: #4B5563;           /* Secondary text */
+      --brand: #000000;           /* Headings now black */
+      --brand-accent: #85BB65;    /* Divider accent (not text) */
+      --text: #000000;            /* Body text black */
+      --muted: #000000;           /* Any muted text also black */
       --maxw: 920px;              /* Column width */
 
       /* Spacing scale (tightened) */
@@ -43,7 +43,7 @@
     .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: color-mix(in oklab, var(--paper) 88%, white 12%); border-bottom: 1px solid rgba(31,41,55,.08); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 12px; }
 
-    /* CHANGED: logo text color set to black (#000); nothing else altered */
+    /* Logo already black */
     .logo { color: #000; letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
     .logo .divider { width: 56px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
@@ -169,69 +169,4 @@
       </ul>
     </section>
 
-    <hr class="rule" aria-hidden="true" />
-
-    <!-- Brands (grid, no bullets) -->
-    <section class="section-tight">
-      <h2>Brands Who Have Trusted Us</h2>
-      <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods, delivering measurable results and long-term partnerships.</p>
-
-      <ul class="brands">
-        <li><a href="https://www.artek.fi/en/" target="_blank" rel="noopener">Artek</a></li>
-        <li><a href="https://biokia.fi/en/" target="_blank" rel="noopener">Biokia</a></li>
-        <li><a href="https://buildercom.fi/en/homepage-2/" target="_blank" rel="noopener">Buildercom</a></li>
-        <li><a href="https://cariitti.fi/en" target="_blank" rel="noopener">Cariiti</a></li>
-        <li><a href="https://dianaarno.com/" target="_blank" rel="noopener">Diana Arno</a></li>
-        <li><a href="https://www.vertti.co/" target="_blank" rel="noopener">dSign Verti Kivi</a></li>
-        <li><a href="https://educationhousefinland.com/" target="_blank" rel="noopener">Education House Finland</a></li>
-        <li><a href="https://www.ensto.com/" target="_blank" rel="noopener">Ensto</a></li>
-        <li><a href="https://www.fiskars.com/en" target="_blank" rel="noopener">Fiskars</a></li>
-        <li><a href="https://graphogame.com/" target="_blank" rel="noopener">Grapho Game</a></li>
-        <li><a href="https://www.iittala.com/en-gb" target="_blank" rel="noopener">Iittala</a></li>
-        <li><a href="https://isku.com/en/" target="_blank" rel="noopener">Isku</a></li>
-        <li><a href="https://www.ivanahelsinki.com/" target="_blank" rel="noopener">Ivana Helsinki</a></li>
-        <li><a href="https://www.fazergroup.com/media/news/fazer-has-agreed-to-buy-kaslink/" target="_blank" rel="noopener">Kaslink</a></li>
-        <li><a href="https://keveedrinks.com/" target="_blank" rel="noopener">Kevee Drinks</a></li>
-        <li><a href="https://www.kone.ae/en/" target="_blank" rel="noopener">Kone</a></li>
-        <li><a href="https://www.lapinmaria.fi/" target="_blank" rel="noopener">Lapin Maria</a></li>
-        <li><a href="https://www.luinliving.com/" target="_blank" rel="noopener">Luin Living</a></li>
-        <li><a href="https://valonaintelligence.com/about-valona/m-brain-is-now-valona-intelligence" target="_blank" rel="noopener">Mbrain</a></li>
-        <li><a href="https://www.ouka.fi/oulun-vesi" target="_blank" rel="noopener">Oulu Water</a></li>
-        <li><a href="https://www.prodicom.nl/" target="_blank" rel="noopener">Prodicom</a></li>
-        <li><a href="https://www.puustelli.com/" target="_blank" rel="noopener">Puustelli</a></li>
-        <li><a href="https://robertsberrie.com/en" target="_blank" rel="noopener">Robers Berrie</a></li>
-        <li><a href="https://skyx.fi/new/index.html" target="_blank" rel="noopener">SkyX</a></li>
-        <li><a href="https://www.soften.fi/en" target="_blank" rel="noopener">Soften</a></li>
-        <li><a href="https://timberwise.fi/en/" target="_blank" rel="noopener">Timberwise</a></li>
-        <li><a href="https://afry.com/en/afrycom-has-replaced-vahanencom-website" target="_blank" rel="noopener">Vahanen</a></li>
-        <li><a href="https://vetrospace.com/" target="_blank" rel="noopener">Vetrospace</a></li>
-        <li><a href="https://workspace.fi/en/" target="_blank" rel="noopener">Workspace</a></li>
-        <li><a href="https://www.madebychoice.com" target="_blank" rel="noopener">Made By Choice</a></li>
-      </ul>
-    </section>
-
-    <hr class="rule" aria-hidden="true" />
-
-    <!-- Contact -->
-    <section class="section-tight">
-      <h2>Contact &amp; Next Steps</h2>
-      <p>Let’s discuss your growth in the Middle East.</p>
-
-      <p><strong>Meriam Perez</strong><br />
-        <span>📧 Email: <a href="mailto:admin@marsaana.com" class="cta">admin@marsaana.com</a></span><br />
-        <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
-      </p>
-
-      <p><a class="cta" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">© <span id="year"></span> Marsaana Organization</div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <

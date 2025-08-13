@@ -3,114 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marsaana Organization — We Close</title>
-  <meta name="description" content="Sales support, investor access, and partner development for Nordic and European brands expanding in the Middle East." />
+  <title>Marsaana Organization — Middle East Market Entry</title>
+  <meta name="description" content="Driving sales, securing deals, and unlocking capital for Nordic and European brands in the Middle East." />
+  <meta name="theme-color" content="#FFF1E5" />
 
-  <!-- Fonts: classic serif for logo/headings, modern sans for body -->
+  <!-- Editorial typography (FT-inspired): Newsreader (serif) + Source Sans 3 (sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    /* Color system — FT "paper" + accessible dollar green */
     :root {
-      --brand: #0b4d3b;         /* Dark green for titles & logo */
-      --bg: #ffffff;            /* White background as requested */
-      --text: #1f2937;          /* Neutral dark gray for body text */
-      --muted: #4b5563;         /* Secondary text */
-      --maxw: 920px;            /* Content width */
-      --space-1: 6px;           /* Spacing scale */
-      --space-2: 10px;
-      --space-3: 16px;
-      --space-4: 24px;
-      --space-5: 32px;
-      --space-6: 48px;
-      --space-7: 72px;
-      --radius: 16px;
+      --paper: #FFF1E5;           /* Financial Times beige */
+      --brand: #3E8C45;           /* Accessible dollar green for headings (>=3:1 contrast on FT beige) */
+      --brand-accent: #85BB65;    /* Lighter dollar green for rules/accents */
+      --text: #1F2937;            /* Charcoal for body text */
+      --muted: #4B5563;           /* Secondary text */
+      --maxw: 920px;              /* Column width */
+
+      /* Spacing scale */
+      --s-1: 6px; --s-2: 10px; --s-3: 16px; --s-4: 24px; --s-5: 32px; --s-6: 48px; --s-7: 72px;
     }
 
-    /* Page base */
     html, body { height: 100%; }
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--paper);
       color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.7;
+      font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    .container {
-      max-width: var(--maxw);
-      margin-inline: auto;
-      padding-inline: 20px;
-    }
+    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
 
-    /* Header & logo */
-    .site-header { 
-      position: sticky; 
-      top: 0; 
-      backdrop-filter: saturate(180%) blur(8px);
-      background: color-mix(in oklab, var(--bg) 82%, white 18%);
-      border-bottom: 1px solid #edf2f7; 
-      z-index: 10; 
-    }
-    .header-inner { 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between; 
-      padding-block: 14px; 
-    }
+    /* Header with typographic wordmark (classic, trustworthy) */
+    .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: color-mix(in oklab, var(--paper) 88%, white 12%); border-bottom: 1px solid rgba(31,41,55,.08); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; }
 
-    .logo { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 12px; 
-      color: var(--brand); 
-      text-transform: uppercase; 
-      letter-spacing: 0.18em; 
-      font-family: "Cinzel", serif; 
-    }
-    .logo-main { font-weight: 700; font-size: 18px; }
-    .logo-divider { width: 64px; height: 1px; background: var(--brand); opacity: .7; display: inline-block; }
-    .logo-sub { font-weight: 700; font-size: 14px; opacity: .95; }
+    .logo { color: var(--brand); letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; }
+    .logo .divider { width: 64px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
     /* Hero */
-    .hero { padding-block: var(--space-6); }
-    .eyebrow { color: var(--brand); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; margin-bottom: var(--space-2); display: inline-block; }
-    h1 { color: var(--brand); font-family: "Cinzel", serif; font-size: clamp(28px, 5vw, 44px); line-height: 1.2; margin: 0 0 var(--space-3); }
+    .hero { padding-block: var(--s-6); }
+    h1 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(28px, 5vw, 44px); line-height: 1.2; margin: 0 0 var(--s-3); }
     .lead { color: var(--muted); font-size: 18px; margin: 0; }
 
     /* Sections */
-    section { padding-block: var(--space-6); border-top: 1px solid #f1f5f9; }
+    section { padding-block: var(--s-6); border-top: 1px solid rgba(31,41,55,.08); }
     section:first-of-type { border-top: none; }
+    h2 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(20px, 3.2vw, 30px); line-height: 1.3; margin: 0 0 var(--s-3); }
+    p { margin: 0 0 var(--s-2); max-width: 78ch; }
+    ul { margin: 0; padding-left: 1.2rem; }
 
-    h2 { color: var(--brand); font-family: "Cinzel", serif; font-size: clamp(20px, 3.2vw, 28px); line-height: 1.3; margin: 0 0 var(--space-3); }
-    p { margin: 0 0 var(--space-2); max-width: 78ch; }
+    /* Fine rule (⸻ look & feel) */
+    .rule { height: 1px; background: linear-gradient(to right, transparent, var(--brand-accent), transparent); border: 0; margin: var(--s-6) 0 var(--s-5); opacity: .9; }
 
-    /* Subheads inside paragraphs (kept from original content) */
-    p > strong { display: block; margin-top: var(--space-4); color: var(--brand); font-weight: 700; }
+    /* Numbered steps */
+    .steps { counter-reset: step; display: grid; gap: var(--s-4); }
+    .step { position: relative; padding-left: 52px; }
+    .step::before {
+      counter-increment: step;
+      content: counter(step) ".";
+      position: absolute; left: 0; top: 0.15rem;
+      font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: 22px;
+    }
+    .step-title { font-weight: 600; }
 
-    /* Content rhythm helpers */
-    .stack > * + * { margin-top: var(--space-2); }
-    .block-gap { margin-top: var(--space-5); }
+    .muted { color: var(--muted); }
 
     /* Footer */
-    footer { padding-block: var(--space-6); border-top: 1px solid #f1f5f9; color: var(--muted); font-size: 14px; }
+    footer { padding-block: var(--s-6); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
 
-    /* Responsive tweaks */
+    /* Links */
+    a { color: inherit; text-underline-offset: 3px; }
+    a.cta { color: var(--brand); font-weight: 600; }
+
     @media (min-width: 900px) {
-      .hero { padding-block: var(--space-7); }
-      .header-inner { padding-block: 18px; }
+      .hero { padding-block: var(--s-7); }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Typographic logo inspired by classic luxury serif marks (not an exact replica) -->
       <div class="logo" aria-label="Marsaana Organization">
-        <span class="logo-main">Marsaana</span>
-        <span class="logo-divider" aria-hidden="true"></span>
-        <span class="logo-sub">Organization</span>
+        <span>Marsaana</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>Organization</span>
       </div>
     </div>
   </header>
@@ -118,87 +100,98 @@
   <main class="container">
     <!-- Hero -->
     <section class="hero">
-      <span class="eyebrow">Middle East market entry</span>
-      <h1>We Don’t Bet on Maybes. We Close</h1>
-      <p class="lead">Sales support and investor access in the Middle East</p>
+      <h1>Middle East Market Entry</h1>
+      <p class="lead">Driving Sales, Securing Deals, Unlocking Capital.</p>
     </section>
 
-    <!-- What We Do -->
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- Our Approach -->
     <section>
-      <h2>What We Do</h2>
-      <div class="stack">
-        <p>We help Nordic and European brands grow in the Middle East by focusing on one thing, which is traction.</p>
-        <p>Whether it’s your first customer, distributor or investor, our job is to close the deal.</p>
+      <h2>Our Approach</h2>
+      <p>We follow a proven, de-risked process to help Nordic and European brands succeed in the Middle East.</p>
+
+      <div class="steps" aria-label="Four-step approach">
+        <div class="step">
+          <p class="step-title">Evaluate &amp; Adapt</p>
+          <p>We assess your current market position, offering, and materials — then adapt them to fit the realities of the Middle East. No assumptions, only targeted adjustments.</p>
+        </div>
+        <div class="step">
+          <p class="step-title">Secure the First Win</p>
+          <p>Whether it’s a key customer, distribution agreement, or investor commitment, our first objective is to close a concrete deal or secure financing.</p>
+        </div>
+        <div class="step">
+          <p class="step-title">Tailor for Market Fit</p>
+          <p>We refine your offer, pitch, or product based on real market feedback from the first deal, ensuring it resonates and scales effectively.</p>
+        </div>
+        <div class="step">
+          <p class="step-title">Plan &amp; Expand</p>
+          <p>With proof of concept secured, we develop a market entry and growth plan grounded in local insights and practical execution.</p>
+        </div>
       </div>
     </section>
+
+    <hr class="rule" aria-hidden="true" />
 
     <!-- How We Deliver -->
     <section>
       <h2>How We Deliver</h2>
+      <p><strong>On-the-Ground Sales Support</strong><br />
+      We operate as your local team — identifying opportunities, engaging decision-makers, and driving deals to close.</p>
 
-      <div class="stack">
-        <p><strong>Sales support and local activation</strong>
-          We act as your boots on the ground.
-          We help you test the market, find your first deal and support ongoing growth through trusted local partners.
-        </p>
+      <p><strong>Investor Access</strong><br />
+      We connect you with family offices and strategic investors, positioning you for meaningful conversations that lead to commitments.</p>
 
-        <p class="block-gap"><strong>Investor access and capital raising</strong>
-          We connect you to family offices and regional investors.
-          We shape your pitch, fix your materials and get you in front of the right people.
-          Funding here is built on access and relationships.
-        </p>
+      <p><strong>Partner Development</strong><br />
+      From distributors to licensing partners, we build the right channels and relationships to accelerate market entry.</p>
 
-        <p class="block-gap"><strong>Partner and channel development</strong>
-          From distributors to licensing partners to showroom operators.
-          We map and initiate the relationships that matter and follow through.
-        </p>
-
-        <p class="block-gap"><strong>Traction focused fieldwork</strong>
-          Real outreach.
-          Real feedback.
-          Real progress.
-          We do the legwork your reps and partners won’t.
-        </p>
-
-        <p class="block-gap"><strong>Smart reporting where it counts</strong>
-          Need research or market insights?
-          We deliver only when it helps close or scale.
-          Not to tick a box.
-        </p>
-      </div>
+      <p><strong>Insights That Drive Action</strong><br />
+      We deliver research only when it directly supports closing deals or scaling.</p>
     </section>
+
+    <hr class="rule" aria-hidden="true" />
 
     <!-- Why Us -->
     <section>
       <h2>Why Us</h2>
-      <div class="stack">
-        <p>Over 30 years of hands-on experience in the UAE and GCC.</p>
-        <p>Trusted by leading Nordic brands in design, tech, furniture and consumer goods.</p>
-        <p>Backed by Marsaana with Nordic credibility and real regional presence.</p>
-        <p>From soft entry to fully operational.</p>
-        <p>We meet you where you are.</p>
-      </div>
+      <ul>
+        <li>Over 30 years of practical experience in the UAE and GCC.</li>
+        <li>Trusted by leading Nordic brands in design, technology, and consumer goods.</li>
+        <li>Backed by Marsaana: Nordic credibility with established regional presence.</li>
+        <li>Flexible support from soft-entry to full operations.</li>
+      </ul>
     </section>
 
-    <!-- CTA -->
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- Brands -->
     <section>
-      <h2>Let’s Make It Happen</h2>
-      <div class="stack">
-        <p>Want sales in the Middle East?</p>
-        <p>Or capital to fuel your growth?</p>
-        <p>We get you started and we close.</p>
-      </div>
+      <h2>Brands Who Have Trusted Us</h2>
+      <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods — delivering measurable results and long-term partnerships.</p>
+      <p class="muted">(List of client logos or names can be inserted here.)</p>
+    </section>
+
+    <hr class="rule" aria-hidden="true" />
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact &amp; Next Steps</h2>
+      <p>Let’s discuss your growth in the Middle East.</p>
+
+      <p><strong>Meriam Perez</strong><br />
+        <span>📧 Email: <a href="mailto:admin@marsaana.com" class="cta">admin@marsaana.com</a></span><br />
+        <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
+      </p>
+
+      <p><a class="cta" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © <span id="year"></span> Marsaana Organization
-    </div>
+    <div class="container">© <span id="year"></span> Marsaana Organization</div>
   </footer>
 
   <script>
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>

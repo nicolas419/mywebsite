@@ -47,8 +47,9 @@
     .logo .divider { width: 64px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
     /* Hero */
-    .hero { padding-block: var(--s-6); }
-    h1 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(28px, 5vw, 44px); line-height: 1.2; margin: 0 0 var(--s-3); }
+    .hero { padding-block: var(--s-5); }
+    $1
+    .hero h1 { margin-bottom: var(--s-2); }
     .lead { color: var(--muted); font-size: 18px; margin: 0; }
 
     /* Sections */
@@ -74,16 +75,16 @@
 
     .muted { color: var(--muted); }
 
-    /* Footer */
+    .section-tight { padding-block: var(--s-5); }
+
+    $1
     footer { padding-block: var(--s-6); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
 
     /* Links */
     a { color: inherit; text-underline-offset: 3px; }
     a.cta { color: var(--brand); font-weight: 600; }
 
-    @media (min-width: 900px) {
-      .hero { padding-block: var(--s-7); }
-    }
+    @media (min-width: 900px) { .hero { padding-block: var(--s-6); } }
   </style>
 </head>
 <body>
@@ -107,14 +108,13 @@
     <hr class="rule" aria-hidden="true" />
 
     <!-- Our Approach -->
-    <section>
+    <section class="section-tight">
       <h2>Our Approach</h2>
       <p>We follow a proven, de-risked process to help Nordic and European brands succeed in the Middle East.</p>
 
       <div class="steps" aria-label="Four-step approach">
         <div class="step">
-          <p class="step-title">Evaluate &amp; Adapt</p>
-          <p>We assess your current market position, offering, and materials — then adapt them to fit the realities of the Middle East. No assumptions, only targeted adjustments.</p>
+          $1<p>We assess your current market position, offering, and materials. We then adapt them to fit the realities of the Middle East. No assumptions, only targeted adjustments.</p>
         </div>
         <div class="step">
           <p class="step-title">Secure the First Win</p>
@@ -134,10 +134,10 @@
     <hr class="rule" aria-hidden="true" />
 
     <!-- How We Deliver -->
-    <section>
+    <section class="section-tight">
       <h2>How We Deliver</h2>
-      <p><strong>On-the-Ground Sales Support</strong><br />
-      We operate as your local team — identifying opportunities, engaging decision-makers, and driving deals to close.</p>
+      <p><strong$1
+      We operate as your local team and you can trust we are the best when it comes to identifying opportunities, engaging decision-makers, and driving deals to close.</p>
 
       <p><strong>Investor Access</strong><br />
       We connect you with family offices and strategic investors, positioning you for meaningful conversations that lead to commitments.</p>
@@ -152,7 +152,7 @@
     <hr class="rule" aria-hidden="true" />
 
     <!-- Why Us -->
-    <section>
+    <section class="section-tight">
       <h2>Why Us</h2>
       <ul>
         <li>Over 30 years of practical experience in the UAE and GCC.</li>
@@ -167,8 +167,40 @@
     <!-- Brands -->
     <section>
       <h2>Brands Who Have Trusted Us</h2>
-      <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods — delivering measurable results and long-term partnerships.</p>
-      <p class="muted">(List of client logos or names can be inserted here.)</p>
+      <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods, delivering measurable results and long-term partnerships.</p>
+      <ul>
+        <li><a href="https://www.artek.fi/en/" target="_blank" rel="noopener">Artek</a></li>
+        <li><a href="https://biokia.fi/en/" target="_blank" rel="noopener">Biokia</a></li>
+        <li><a href="https://buildercom.fi/en/homepage-2/" target="_blank" rel="noopener">Buildercom</a></li>
+        <li><a href="https://cariitti.fi/en" target="_blank" rel="noopener">Cariiti</a></li>
+        <li><a href="https://dianaarno.com/" target="_blank" rel="noopener">Diana Arno</a></li>
+        <li><a href="https://www.vertti.co/" target="_blank" rel="noopener">dSign Verti Kivi</a></li>
+        <li><a href="https://educationhousefinland.com/" target="_blank" rel="noopener">Education House Finland</a></li>
+        <li><a href="https://www.ensto.com/" target="_blank" rel="noopener">Ensto</a></li>
+        <li><a href="https://www.fiskars.com/en" target="_blank" rel="noopener">Fiskars</a></li>
+        <li><a href="https://graphogame.com/" target="_blank" rel="noopener">Grapho Game</a></li>
+        <li><a href="https://www.iittala.com/en-gb" target="_blank" rel="noopener">Iittala</a></li>
+        <li><a href="https://isku.com/en/" target="_blank" rel="noopener">Isku</a></li>
+        <li><a href="https://www.ivanahelsinki.com/" target="_blank" rel="noopener">Ivana Helsinki</a></li>
+        <li><a href="https://www.fazergroup.com/media/news/fazer-has-agreed-to-buy-kaslink/" target="_blank" rel="noopener">Kaslink</a></li>
+        <li><a href="https://keveedrinks.com/" target="_blank" rel="noopener">Kevee Drinks</a></li>
+        <li><a href="https://www.kone.ae/en/" target="_blank" rel="noopener">Kone</a></li>
+        <li><a href="https://www.lapinmaria.fi/" target="_blank" rel="noopener">Lapin Maria</a></li>
+        <li><a href="https://www.luinliving.com/" target="_blank" rel="noopener">Luin Living</a></li>
+        <li><a href="https://valonaintelligence.com/about-valona/m-brain-is-now-valona-intelligence" target="_blank" rel="noopener">Mbrain</a></li>
+        <li><a href="https://www.ouka.fi/oulun-vesi" target="_blank" rel="noopener">Oulu Water</a></li>
+        <li><a href="https://www.prodicom.nl/" target="_blank" rel="noopener">Prodicom</a></li>
+        <li><a href="https://www.puustelli.com/" target="_blank" rel="noopener">Puustelli</a></li>
+        <li><a href="https://robertsberrie.com/en" target="_blank" rel="noopener">Robers Berrie</a></li>
+        <li><a href="https://skyx.fi/new/index.html" target="_blank" rel="noopener">SkyX</a></li>
+        <li><a href="https://www.soften.fi/en" target="_blank" rel="noopener">Soften</a></li>
+        <li><a href="https://timberwise.fi/en/" target="_blank" rel="noopener">Timberwise</a></li>
+        <li><a href="https://afry.com/en/afrycom-has-replaced-vahanencom-website" target="_blank" rel="noopener">Vahanen</a></li>
+        <li><a href="https://vetrospace.com/" target="_blank" rel="noopener">Vetrospace</a></li>
+        <li><a href="https://workspace.fi/en/" target="_blank" rel="noopener">Workspace</a></li>
+        <li><a href="https://www.puustelli.com" target="_blank" rel="noopener">Puustelli</a></li>
+        <li><a href="https://www.madebychoice.com" target="_blank" rel="noopener">Made By Choice</a></li>
+      </ul>
     </section>
 
     <hr class="rule" aria-hidden="true" />

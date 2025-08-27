@@ -44,7 +44,6 @@
     .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: color-mix(in oklab, var(--paper) 88%, white 12%); border-bottom: 1px solid rgba(31,41,55,.08); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 12px; }
 
-    /* Logo already black */
     .logo { color: #000; letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
     .logo .divider { width: 56px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
@@ -52,6 +51,10 @@
     .hero { padding-block: var(--s-4); }
     h1 { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; margin: 0 0 var(--s-2); }
     .subhead { font-family: "Newsreader", serif; color: var(--brand); font-weight: 700; font-size: clamp(20px, 3.4vw, 30px); line-height: 1.25; margin: 0; }
+
+    /* Hero image */
+    .hero-figure { margin-top: var(--s-3); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .hero-figure img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
 
     /* Sections */
     section { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); }
@@ -110,12 +113,21 @@
     <section class="hero">
       <h1>Middle East Market Entry</h1>
       <p class="subhead">Driving Sales, Securing Deals, Unlocking Capital.</p>
+
+      <!-- Hero image: uses /cash.jpg at repo root -->
+      <figure class="hero-figure">
+        <img
+          src="cash.jpg"
+          alt="A hand reaching as money flies away — capturing opportunities before value escapes."
+          width="1600" height="900"
+          loading="eager" decoding="async" />
+      </figure>
     </section>
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- Our Approach (tighter) -->
-    <section class="section-tight">
+    <!-- Our Approach -->
+    <section id="approach" class="section-tight">
       <h2>Our Approach</h2>
       <p>We follow a proven, de-risked process to help Nordic and European brands succeed in the Middle East.</p>
 
@@ -141,8 +153,8 @@
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- How We Deliver (tighter) -->
-    <section class="section-tight">
+    <!-- How We Deliver -->
+    <section id="deliver" class="section-tight">
       <h2>How We Deliver</h2>
       <p><strong>On-the-Ground Sales Support</strong><br />
       We operate as your local team and you can trust we are the best when it comes to identifying opportunities, engaging decision-makers, and driving deals to close.</p>
@@ -159,21 +171,17 @@
 
     <hr class="rule" aria-hidden="true" />
 
-    <!-- Why Us (tighter) -->
-    <section class="section-tight">
+    <!-- Why Us (paragraph + CTA) -->
+    <section id="why-us" class="section-tight">
       <h2>Why Us</h2>
-      <ul>
-        <li>Over 30 years of practical experience in the UAE and GCC.</li>
-        <li>Trusted by leading Nordic brands in design, technology, and consumer goods.</li>
-        <li>Backed by Marsaana: Nordic credibility with established regional presence.</li>
-        <li>Flexible support from soft-entry to full operations.</li>
-      </ul>
+      <p>With over 30 years of hands-on experience in the UAE and GCC, we know how to turn market entry into measurable outcomes. Trusted by leading Nordic brands across design, technology, and consumer goods, we don’t just advise or make a fancy report. We love building pipelines, securing capital, winning projects, and signing distributors. Backed by Marsaana, we combine Nordic credibility with established regional presence, delivering flexible support from soft entry to full operations.</p>
+      <p><a href="#contact" class="cta">Get in touch</a> and let us show you how we make opportunities real.</p>
     </section>
 
     <hr class="rule" aria-hidden="true" />
 
     <!-- Brands (grid, no bullets) -->
-    <section class="section-tight">
+    <section id="brands" class="section-tight">
       <h2>Brands Who Have Trusted Us</h2>
       <p>Over the years, we’ve supported leading Nordic and European brands across design, technology, furniture, and consumer goods, delivering measurable results and long-term partnerships.</p>
 
@@ -214,7 +222,7 @@
     <hr class="rule" aria-hidden="true" />
 
     <!-- Contact -->
-    <section class="section-tight">
+    <section id="contact" class="section-tight">
       <h2>Contact &amp; Next Steps</h2>
       <p>Let’s discuss your growth in the Middle East.</p>
 

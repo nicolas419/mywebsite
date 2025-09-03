@@ -40,8 +40,17 @@
 
     .container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
 
-    /* Header with typographic wordmark */
-    .site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(6px); background: color-mix(in oklab, var(--paper) 88%, white 12%); border-bottom: 1px solid rgba(31,41,55,.08); }
+    /* Header (white) */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #ffffff;                     /* <- white bar */
+      border-bottom: 1px solid rgba(31,41,55,.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,.04);
+    }
+    .site-header.unstick { position: relative; box-shadow: none; } /* stops sticking at Contact */
+
     .header-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 12px; }
 
     .logo { color: #000; letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
@@ -69,7 +78,7 @@
     .hero-figure img { width: 100%; height: auto; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
 
     /* Sections */
-    section { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); }
+    section { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); scroll-margin-top: 72px; }
     section:first-of-type { border-top: none; }
     .section-tight { padding-block: var(--s-4); }
 
@@ -274,6 +283,23 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Make header "follow" until Contact: sticky by default, becomes relative at Contact.
+    function toggleHeaderStickiness() {
+      const header = document.querySelector('.site-header');
+      const contact = document.getElementById('contact');
+      if (!header || !contact) return;
+      const headerH = header.offsetHeight || 0;
+      const contactTop = contact.getBoundingClientRect().top;
+      if (contactTop <= headerH + 8) {
+        header.classList.add('unstick');   // stop sticking at Contact
+      } else {
+        header.classList.remove('unstick'); // stick above Contact
+      }
+    }
+    window.addEventListener('scroll', toggleHeaderStickiness, { passive: true });
+    window.addEventListener('resize', toggleHeaderStickiness);
+    window.addEventListener('load', toggleHeaderStickiness, { once: true });
 
     // Size & align the footer logo so it visually parallels the Contact block:
     // - Height spans from Contact title top to WhatsApp CTA bottom

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Marsaana Organization — Middle East Market Entry</title>
+  <title>M-Advisory — Middle East Market Entry</title>
   <meta name="description" content="Driving sales, securing deals, and unlocking capital for Nordic and European brands in the Middle East." />
   <meta name="theme-color" content="#FFF1E5" />
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -46,6 +46,11 @@
 
     .logo { color: #000; letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
     .logo .divider { width: 56px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
+
+    /* NEW: simple top navigation */
+    .nav { display: flex; gap: 18px; align-items: center; }
+    .nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; letter-spacing: .02em; }
+    .nav a:hover, .nav a:focus { text-decoration: underline; color: var(--brand); }
 
     /* Hero */
     .hero { padding-block: var(--s-4); }
@@ -100,11 +105,14 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo" aria-label="Marsaana Organization">
-        <span>Marsaana</span>
-        <span class="divider" aria-hidden="true"></span>
-        <span>Organization</span>
+      <div class="logo" aria-label="M-Advisory">
+        <span>M-Advisory</span>
       </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#why-us">About</a>
+        <a href="#brands">Clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -236,7 +244,7 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Marsaana Organization</div>
+    <div class="container">© <span id="year"></span> M-Advisory</div>
   </footer>
 
   <script>

@@ -97,21 +97,6 @@
     .brands a { text-decoration: none; color: var(--text); }
     .brands a:hover, .brands a:focus { text-decoration: underline; color: var(--brand); }
 
-    /* Map block */
-    .contact-grid { display: grid; gap: var(--s-3); }
-    @media (min-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
-    }
-    .map-wrap { position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
-    .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
-    .map-label {
-      position: absolute; top: 10px; left: 10px;
-      background: rgba(255,241,229,.95);
-      border: 1px solid rgba(31,41,55,.12);
-      padding: 6px 10px; border-radius: 8px;
-      font-weight: 700; font-family: "Newsreader", serif;
-    }
-
     /* Footer (logo right, aligned with Contact section height) */
     footer { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
     .footer-inner {
@@ -268,40 +253,15 @@
     <!-- Contact -->
     <section id="contact" class="section-tight">
       <h2>Contact &amp; Next Steps</h2>
-      <div class="contact-grid">
-        <!-- Left: text + actions -->
-        <div>
-          <p>Let’s discuss your growth in the Middle East.</p>
+      <p>Let’s discuss your growth in the Middle East.</p>
 
-          <p><strong>Meriam Perez</strong><br />
-            <span>📧 Email: <a href="mailto:meriam@marsaana.com" class="cta">meriam@marsaana.com</a></span><br />
-            <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
-          </p>
+      <p><strong>Meriam Perez</strong><br />
+        <span>📧 Email: <a href="mailto:meriam@marsaana.com" class="cta">meriam@marsaana.com</a></span><br />
+        <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span><br />
+        <span>📍 Location: <a href="https://maps.app.goo.gl/zWMRrs7fEckKZcSw5" target="_blank" rel="noopener" class="cta">M-Advisory — DMC Building 5, Dubai Media City, Al Sufouh 2, Dubai, UAE</a></span>
+      </p>
 
-          <p><a class="cta contact-bottom" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
-
-          <p class="muted" style="margin-top: var(--s-3)">
-            <strong>Address</strong><br />
-            M-Advisory — DMC Building 5, Dubai Media City,<br />Al Sufouh 2, Dubai, UAE
-          </p>
-        </div>
-
-        <!-- Right: Map -->
-        <div>
-          <div class="map-wrap" aria-label="Map to M-Advisory, Dubai Media City">
-            <span class="map-label">M-Advisory</span>
-            <iframe
-              src="https://www.google.com/maps?q=25.0966931,55.1562387&z=16&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              aria-hidden="false">
-            </iframe>
-          </div>
-          <p class="muted" style="margin-top: 6px;">
-            <a class="cta" href="https://www.google.com/maps/place/DQuarters+-+Dubai+Media+City/@25.0966979,55.1536638,736m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3e5f432eeab6c669:0x5e62883b8a4ee53d!8m2!3d25.0966931!4d55.1562387" target="_blank" rel="noopener">Open in Google Maps</a>
-          </p>
-        </div>
-      </div>
+      <p><a class="cta contact-bottom" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
     </section>
   </main>
 

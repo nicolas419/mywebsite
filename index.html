@@ -47,10 +47,27 @@
     .logo { color: #000; letter-spacing: .14em; text-transform: uppercase; font-family: "Newsreader", serif; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 16px; }
     .logo .divider { width: 56px; height: 1px; background: var(--brand); opacity: .65; display: inline-block; }
 
-    /* NEW: simple top navigation */
+    /* Top navigation */
     .nav { display: flex; gap: 18px; align-items: center; }
     .nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 14px; letter-spacing: .02em; }
     .nav a:hover, .nav a:focus { text-decoration: underline; color: var(--brand); }
+
+    /* Logo images */
+    .logo-mark {               /* header logo: exactly 2× the header "M" size */
+      height: 2em;             /* em ties to .logo font-size for reliable scaling */
+      width: auto;
+      vertical-align: middle;
+    }
+    .footer-inner {            /* footer layout with left-aligned logo */
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+    .footer-logo {
+      width: auto;
+      height: 80px;            /* fallback; JS below will set exact height */
+      object-fit: contain;
+    }
 
     /* Hero */
     .hero { padding-block: var(--s-4); }
@@ -106,6 +123,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo" aria-label="M-Advisory">
+        <img src="Monogram%20Modern%20Letter%20M.svg" alt="M-Advisory logo" class="logo-mark" />
         <span>M-Advisory</span>
       </div>
       <nav class="nav" aria-label="Primary">
@@ -239,16 +257,37 @@
         <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
       </p>
 
-      <p><a class="cta" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
+      <p><a class="cta contact-bottom" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
     </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> M-Advisory</div>
+    <div class="container footer-inner">
+      <img src="Monogram%20Modern%20Letter%20M.svg" alt="M-Advisory logo" id="footer-logo" class="footer-logo" />
+      <div>© <span id="year"></span> M-Advisory</div>
+    </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Size the footer logo so its height spans from the Contact title to the WhatsApp CTA
+    function sizeFooterLogo() {
+      const contact = document.getElementById('contact');
+      if (!contact) return;
+      const titleEl = contact.querySelector('h2');
+      const bottomEl = contact.querySelector('.contact-bottom');
+      const logo = document.getElementById('footer-logo');
+      if (!titleEl || !bottomEl || !logo) return;
+
+      const titleTop = titleEl.getBoundingClientRect().top + window.scrollY;
+      const bottom = bottomEl.getBoundingClientRect().bottom + window.scrollY;
+      const height = Math.max(80, bottom - titleTop); // sensible minimum
+      logo.style.height = height + 'px';
+    }
+
+    window.addEventListener('load', sizeFooterLogo, { once: true });
+    window.addEventListener('resize', sizeFooterLogo);
   </script>
 </body>
 </html>

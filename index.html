@@ -58,16 +58,6 @@
       width: auto;
       vertical-align: middle;
     }
-    .footer-inner {            /* footer layout with left-aligned logo */
-      display: flex;
-      align-items: flex-end;
-      gap: 12px;
-    }
-    .footer-logo {
-      width: auto;
-      height: 80px;            /* fallback; JS below will set exact height */
-      object-fit: contain;
-    }
 
     /* Hero */
     .hero { padding-block: var(--s-4); }
@@ -107,8 +97,36 @@
     .brands a { text-decoration: none; color: var(--text); }
     .brands a:hover, .brands a:focus { text-decoration: underline; color: var(--brand); }
 
-    /* Footer */
+    /* Map block */
+    .contact-grid { display: grid; gap: var(--s-3); }
+    @media (min-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+    .map-wrap { position: relative; overflow: hidden; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+    .map-label {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(255,241,229,.95);
+      border: 1px solid rgba(31,41,55,.12);
+      padding: 6px 10px; border-radius: 8px;
+      font-weight: 700; font-family: "Newsreader", serif;
+    }
+
+    /* Footer (logo right, aligned with Contact section height) */
     footer { padding-block: var(--s-5); border-top: 1px solid rgba(31,41,55,.08); color: var(--muted); font-size: 14px; }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;  /* copy left, logo right */
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .footer-logo {
+      width: auto;
+      height: 80px;                    /* fallback; JS will size/position */
+      object-fit: contain;
+      margin-top: 0;                   /* JS sets negative margin to align with Contact */
+    }
+    .footer-copy { align-self: flex-end; }
 
     /* Links */
     a { color: inherit; text-underline-offset: 3px; }
@@ -250,44 +268,79 @@
     <!-- Contact -->
     <section id="contact" class="section-tight">
       <h2>Contact &amp; Next Steps</h2>
-      <p>Let’s discuss your growth in the Middle East.</p>
+      <div class="contact-grid">
+        <!-- Left: text + actions -->
+        <div>
+          <p>Let’s discuss your growth in the Middle East.</p>
 
-      <p><strong>Meriam Perez</strong><br />
-        <span>📧 Email: <a href="mailto:meriam@marsaana.com" class="cta">meriam@marsaana.com</a></span><br />
-        <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
-      </p>
+          <p><strong>Meriam Perez</strong><br />
+            <span>📧 Email: <a href="mailto:meriam@marsaana.com" class="cta">meriam@marsaana.com</a></span><br />
+            <span>📱 Phone &amp; WhatsApp: <a href="tel:+971551320282" class="cta">+971 55 132 0282</a></span>
+          </p>
 
-      <p><a class="cta contact-bottom" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
+          <p><a class="cta contact-bottom" href="https://wa.me/971551320282" target="_blank" rel="noopener">Tap here to message on WhatsApp</a></p>
+
+          <p class="muted" style="margin-top: var(--s-3)">
+            <strong>Address</strong><br />
+            M-Advisory — DMC Building 5, Dubai Media City,<br />Al Sufouh 2, Dubai, UAE
+          </p>
+        </div>
+
+        <!-- Right: Map -->
+        <div>
+          <div class="map-wrap" aria-label="Map to M-Advisory, Dubai Media City">
+            <span class="map-label">M-Advisory</span>
+            <iframe
+              src="https://www.google.com/maps?q=25.0966931,55.1562387&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-hidden="false">
+            </iframe>
+          </div>
+          <p class="muted" style="margin-top: 6px;">
+            <a class="cta" href="https://www.google.com/maps/place/DQuarters+-+Dubai+Media+City/@25.0966979,55.1536638,736m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3e5f432eeab6c669:0x5e62883b8a4ee53d!8m2!3d25.0966931!4d55.1562387" target="_blank" rel="noopener">Open in Google Maps</a>
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
+      <div class="footer-copy">© <span id="year"></span> M-Advisory</div>
       <img src="Monogram%20Modern%20Letter%20M.svg" alt="M-Advisory logo" id="footer-logo" class="footer-logo" />
-      <div>© <span id="year"></span> M-Advisory</div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Size the footer logo so its height spans from the Contact title to the WhatsApp CTA
-    function sizeFooterLogo() {
+    // Size & align the footer logo so it visually parallels the Contact block:
+    // - Height spans from Contact title top to WhatsApp CTA bottom
+    // - Right-aligned; pulled upward so its top matches the Contact title level
+    function positionFooterLogo() {
       const contact = document.getElementById('contact');
-      if (!contact) return;
+      const footer = document.querySelector('footer');
+      const logo = document.getElementById('footer-logo');
+      if (!contact || !footer || !logo) return;
+
       const titleEl = contact.querySelector('h2');
       const bottomEl = contact.querySelector('.contact-bottom');
-      const logo = document.getElementById('footer-logo');
-      if (!titleEl || !bottomEl || !logo) return;
+      if (!titleEl || !bottomEl) return;
 
       const titleTop = titleEl.getBoundingClientRect().top + window.scrollY;
       const bottom = bottomEl.getBoundingClientRect().bottom + window.scrollY;
-      const height = Math.max(80, bottom - titleTop); // sensible minimum
+      const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+
+      const height = Math.max(80, bottom - titleTop);   // span same vertical as Contact block
       logo.style.height = height + 'px';
+
+      const upward = Math.max(0, footerTop - titleTop); // pull up to align tops
+      logo.style.marginTop = '-' + upward + 'px';
     }
 
-    window.addEventListener('load', sizeFooterLogo, { once: true });
-    window.addEventListener('resize', sizeFooterLogo);
+    window.addEventListener('load', positionFooterLogo, { once: true });
+    window.addEventListener('resize', positionFooterLogo);
   </script>
 </body>
 </html>
